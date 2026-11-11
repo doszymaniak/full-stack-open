@@ -3,6 +3,7 @@ import { useState } from "react";
 const Button = ({ onClick, name }) => <button onClick={onClick}>{name}</button>;
 
 const Statistics = ({ good, neutral, bad }) => {
+  if (good == 0 && neutral == 0 && bad == 0) return <p>No feedback given</p>;
   const all = good + neutral + bad;
   const average = all == 0 ? 0 : (good - bad) / all;
   const positive = all == 0 ? 0 : (good / all) * 100;
